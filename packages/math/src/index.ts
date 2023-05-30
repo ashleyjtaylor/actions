@@ -10,4 +10,4 @@ export const multiply = (numbers: number[]) =>
 export const divide = (numbers: number[]) =>
   numbers.reduce((prev, curr) => prev / curr);
 
-// export const random = () => Math.random();
+export const random = () => Math.random();
