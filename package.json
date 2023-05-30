@@ -7,7 +7,7 @@
     "apps/*"
   ],
   "scripts": {
-    "lint": "nx run-many -t lint --nx-ignore-cycles",
+    "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
     "build": "nx run-many -t build"
   },
