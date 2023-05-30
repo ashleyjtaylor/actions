@@ -1,0 +1,25 @@
+{
+  "name": "@actions/root",
+  "version": "0.0.0",
+  "description": "",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "lint": "nx run-many -t lint --nx-ignore-cycles",
+    "test": "nx run-many -t test",
+    "build": "nx run-many -t build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "eslint": "^8.41.0",
+    "nx": "16.2.2",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}

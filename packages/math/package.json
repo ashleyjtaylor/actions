@@ -1,0 +1,14 @@
+{
+  "name": "@actions/packages-math",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
