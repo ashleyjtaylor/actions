@@ -17,8 +17,8 @@ jobs:
       - name: Audit
         run: npm audit
       - name: Lint
-        run: npx nx affected -t lint
+        run: npx nx affected -t lint --base=[SHA1]
       - name: Test
-        run: npx nx affected -t test
+        run: npx nx affected -t test --base=[SHA1]
       - name: Build
-        run: npx nx affected -t build
+        run: npx nx affected -t build --base=[SHA1]
