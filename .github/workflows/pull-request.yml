@@ -23,8 +23,8 @@ jobs:
       - name: Audit
         run: npm audit
       - name: Lint
-        run: npx nx affected -t lint
+        run: npx nx affected -t lint --base=${{ github.event.pull_request.base.sha }} --head=${{ github.event.pull_request.head.sha }}
       - name: Test
-        run: npx nx affected -t test
+        run: npx nx affected -t test --base=${{ github.event.pull_request.base.sha }} --head=${{ github.event.pull_request.head.sha }}
       - name: Build
-        run: npx nx affected -t build
+        run: npx nx affected -t build --base=${{ github.event.pull_request.base.sha }} --head=${{ github.event.pull_request.head.sha }}
