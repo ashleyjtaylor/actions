@@ -16,7 +16,7 @@
     "libsDir": "packages"
   },
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "origin/main"
   },
   "targetDefaults": {
     "test": {
