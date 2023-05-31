@@ -7,26 +7,51 @@ on:
       - main
 
 jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+      - run: npm ci
+      - run: npm audit
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+      - run: npm ci
+      - run: npx nx affected -t lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+      - run: npm ci
+      - run: npx nx affected -t test
+
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Set SHAs
-        uses: nrwl/nx-set-shas@v2
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '19'
-      - name: Install
-        run: npm i
-      - name: Audit
-        run: npm audit
-      - name: Lint
-        run: npx nx affected -t lint
-      - name: Test
-        run: npx nx affected -t test
-      - name: Build
-        run: npx nx affected -t build
+      - run: npm ci
+      - run: npx nx affected -t build

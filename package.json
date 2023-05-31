@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
-    "build": "nx run-many -t build"
+    "build": "nx run-many -t build",
+    "clean": "rm -rf node_modules **/*/dist **/*/node_modules"
   },
   "author": "",
   "license": "ISC",
