@@ -15,6 +15,7 @@ on:
 
 jobs:
   dev:
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
