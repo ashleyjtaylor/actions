@@ -42,7 +42,7 @@ export default class OIDCProviderStack extends Stack {
         OIDCProviderRolePolicy: new PolicyDocument({
           statements: [
             new PolicyStatement({
-              sid: 'CloudFormationPermissions',
+              sid: 'CdkDeploymentPermissions',
               effect: Effect.ALLOW,
               actions: [
                 'cloudformation:CreateChangeSet',
@@ -51,7 +51,8 @@ export default class OIDCProviderStack extends Stack {
                 'cloudformation:DescribeStacks',
                 'cloudformation:ExecuteChangeSet',
                 'cloudformation:CreateStack',
-                'cloudformation:UpdateStack'
+                'cloudformation:UpdateStack',
+                'ssm:GetParameter'
               ],
               resources: ['*']
             })
