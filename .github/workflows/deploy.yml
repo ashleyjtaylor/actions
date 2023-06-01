@@ -39,8 +39,8 @@ jobs:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
           role-session-name: gh-deploy-session
           aws-region: ${{ env.AWS_REGION }}
-      - run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev
-      - run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev
+      - run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev --require-approval never
+      - run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev --require-approval never
       - name: Deploy app
         run: echo 'Deployed dev'
 
