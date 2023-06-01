@@ -1,7 +1,10 @@
 import { Construct } from 'constructs';
 import { Stack, StackProps } from 'aws-cdk-lib';
 import {
+  Effect,
   OpenIdConnectProvider,
+  PolicyDocument,
+  PolicyStatement,
   Role,
   WebIdentityPrincipal
 } from 'aws-cdk-lib/aws-iam';
@@ -32,7 +35,18 @@ export default class OIDCProviderStack extends Stack {
         StringEquals: {
           [`${issuer}:aud`]: 'sts.amazonaws.com'
         }
-      })
+      }),
+      inlinePolicies: {
+        OIDCProviderRolePolicy: new PolicyDocument({
+          statements: [
+            new PolicyStatement({
+              effect: Effect.ALLOW,
+              actions: ['s3:ListBucket'],
+              resources: ['*']
+            })
+          ]
+        })
+      }
     });
   }
 }

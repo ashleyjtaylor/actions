@@ -76,6 +76,6 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
-          role-session-name: samplerolesession
+          role-session-name: gh-pull-request-session
           aws-region: ${{ env.AWS_REGION }}
       - run: aws s3 ls
