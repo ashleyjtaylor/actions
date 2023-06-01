@@ -41,7 +41,7 @@ export default class OIDCProviderStack extends Stack {
           statements: [
             new PolicyStatement({
               effect: Effect.ALLOW,
-              actions: ['s3:ListBucket'],
+              actions: ['s3:ListBuckets'],
               resources: ['*']
             })
           ]
