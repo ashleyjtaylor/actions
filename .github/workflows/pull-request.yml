@@ -1,5 +1,13 @@
 name: pull-request
 
+env:
+  AWS_REGION: eu-west-1
+  AWS_ACCOUNT_ID: 352835053263
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
 on:
   pull_request:
   push:
@@ -13,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '18'
       - run: npm ci
       - run: npm audit
 
@@ -26,7 +34,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '18'
       - run: npm ci
       - run: npx nx affected -t lint
 
@@ -39,7 +47,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '18'
       - run: npm ci
       - run: npx nx affected -t test
 
@@ -52,6 +60,22 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '18'
       - run: npm ci
       - run: npx nx affected -t build
+
+  cdk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - uses: aws-actions/configure-aws-credentials
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
+          role-session-name: samplerolesession
+          aws-region: ${{ env.AWS_REGION }}
+      - run: aws s3 ls

@@ -1,0 +1,20 @@
+{
+  "name": "@actions/apps-infrastructure",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk:synth": "cdk synth",
+    "cdk:deploy": "cdk deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-cdk": "^2.81.0",
+    "aws-cdk-lib": "^2.81.0",
+    "constructs": "^10.2.39"
+  }
+}
