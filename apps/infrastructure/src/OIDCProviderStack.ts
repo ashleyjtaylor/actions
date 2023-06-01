@@ -53,7 +53,8 @@ export default class OIDCProviderStack extends Stack {
                 'cloudformation:CreateStack',
                 'cloudformation:UpdateStack',
                 'cloudformation:GetTemplate',
-                'ssm:GetParameter'
+                'ssm:GetParameter',
+                'iam:PassRole'
               ],
               resources: ['*']
             })
