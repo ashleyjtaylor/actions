@@ -43,20 +43,9 @@ export default class OIDCProviderStack extends Stack {
           statements: [
             new PolicyStatement({
               sid: 'CdkDeploymentPermissions',
-              effect: Effect.ALLOW,
-              actions: [
-                'cloudformation:CreateChangeSet',
-                'cloudformation:DeleteChangeSet',
-                'cloudformation:DescribeChangeSet',
-                'cloudformation:DescribeStacks',
-                'cloudformation:ExecuteChangeSet',
-                'cloudformation:CreateStack',
-                'cloudformation:UpdateStack',
-                'cloudformation:GetTemplate',
-                'ssm:GetParameter',
-                'iam:PassRole'
-              ],
-              resources: ['*']
+              actions: ['sts:AssumeRole'],
+              resources: ['arn:aws:iam::*:role/cdk-*'],
+              effect: Effect.ALLOW
             })
           ]
         })
