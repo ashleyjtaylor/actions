@@ -32,8 +32,8 @@ jobs:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
           role-session-name: gh-pull-request-session
           aws-region: ${{ env.AWS_REGION }}
-      - run: npm run cdk:synth -- -c env=dev
-      - run: npm run cdk:deploy -- -c env=dev
+      - run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev
+      - run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev
       - name: Deploy app
         run: echo 'Deployed dev'
 
