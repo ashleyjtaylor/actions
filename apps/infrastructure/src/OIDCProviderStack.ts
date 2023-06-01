@@ -21,6 +21,8 @@ export default class OIDCProviderStack extends Stack {
 
     const { issuer, githubOwner, githubRepo } = props;
 
+    // console.log(this.node.tryGetContext('env'));
+
     const provider = new OpenIdConnectProvider(this, 'OIDCProvider', {
       url: `https://${issuer}`,
       clientIds: ['sts.amazonaws.com']

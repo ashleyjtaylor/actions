@@ -1,5 +1,13 @@
 name: deploy
 
+env:
+  AWS_REGION: eu-west-1
+  AWS_ACCOUNT_ID: 352835053263
+
+permissions:
+  id-token: write
+  contents: read
+
 on:
   workflow_run:
     workflows: [pull-request]
@@ -18,7 +26,15 @@ jobs:
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: 'Deploy infrastructure'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
+          role-session-name: gh-pull-request-session
+          aws-region: ${{ env.AWS_REGION }}
+      - run: npm run cdk:synth -- -c env=dev
+      - run: npm run cdk:deploy -- -c env=dev
+      - name: Deploy app
         run: echo 'Deployed dev'
 
   prod:
