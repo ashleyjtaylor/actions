@@ -37,7 +37,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
-          role-session-name: gh-pull-request-session
+          role-session-name: gh-deploy-session
           aws-region: ${{ env.AWS_REGION }}
       - run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev
       - run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev

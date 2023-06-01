@@ -42,8 +42,17 @@ export default class OIDCProviderStack extends Stack {
         OIDCProviderRolePolicy: new PolicyDocument({
           statements: [
             new PolicyStatement({
+              sid: 'CloudFormationPermissions',
               effect: Effect.ALLOW,
-              actions: ['s3:ListBucket'],
+              actions: [
+                'cloudformation:CreateChangeSet',
+                'cloudformation:DeleteChangeSet',
+                'cloudformation:DescribeChangeSet',
+                'cloudformation:DescribeStacks',
+                'cloudformation:ExecuteChangeSet',
+                'cloudformation:CreateStack',
+                'cloudformation:UpdateStack'
+              ],
               resources: ['*']
             })
           ]
