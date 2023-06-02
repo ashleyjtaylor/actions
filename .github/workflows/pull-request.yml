@@ -57,6 +57,7 @@ jobs:
       - run: npx nx affected -t build
 
   version:
+    needs: [audit, lint, test, build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -66,3 +67,5 @@ jobs:
       - run: npm ci
       - name: Version
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
