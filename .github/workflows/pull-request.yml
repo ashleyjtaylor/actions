@@ -55,6 +55,7 @@ jobs:
           node-version: '18'
       - run: npm ci
       - run: npx nx affected -t build
+
   version:
     runs-on: ubuntu-latest
     steps:
