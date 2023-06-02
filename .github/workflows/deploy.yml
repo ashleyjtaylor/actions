@@ -9,9 +9,9 @@ permissions:
   contents: read
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       environment:
@@ -22,8 +22,6 @@ on:
 
 jobs:
   dev:
-    if: |
-      github.ref_name == 'main' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
