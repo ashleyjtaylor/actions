@@ -67,10 +67,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [infrastructure]
     steps:
-      - uses: nrwl/nx-set-shas@v3
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
