@@ -1,6 +1,6 @@
 import { App } from 'aws-cdk-lib';
 
-import ToolsStack from '../src/ToolsStack';
+import ToolsStack from '../lib/ToolsStack';
 
 const app = new App({ outdir: `${process.cwd()}/cdk.out` });
 

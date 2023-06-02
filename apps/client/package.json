@@ -6,13 +6,19 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "build": "tsc",
+    "build": "tsc && tsc -p infrastructure",
     "watch": "tsc -w",
-    "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts"
+    "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts",
+    "cdk:synth": "cdk synth",
+    "cdk:deploy": "cdk deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@actions/packages-math": "^0.0.0"
+  },
+  "devDependencies": {
+    "aws-cdk-lib": "^2.82.0",
+    "constructs": "^10.2.40"
   }
 }

@@ -41,7 +41,7 @@ jobs:
       - name: Build
         run: npm run build
 
-  dev:
+  infrastructure:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
@@ -52,16 +52,41 @@ jobs:
         with:
           node-version: '18'
       - run: npm ci
-      - name: 'Deploy infrastructure'
+      - name: Assume OIDC Role
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
           role-session-name: gh-deploy-session
           aws-region: ${{ env.AWS_REGION }}
-      - run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev --require-approval never
-      - run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev --require-approval never
-      - name: Deploy app
-        run: echo 'Deployed dev'
+      - name: Synth
+        run: npx nx run @actions/apps-infrastructure:cdk:synth -- --require-approval never
+      - name: Deploy
+        run: npx nx run @actions/apps-infrastructure:cdk:deploy -- --require-approval never
+
+  dev:
+    runs-on: ubuntu-latest
+    needs: [infrastructure]
+    steps:
+      - uses: nrwl/nx-set-shas@v3
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - name: Assume OIDC Role
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
+          role-session-name: gh-deploy-session
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy
+        run: npx nx affected -t lint
+      # - name: Synth
+      #   run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev --require-approval never
+      # - name: Deploy
+      #   run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev --require-approval never
 
   prod:
     if: github.event.inputs.environment == 'prod'
