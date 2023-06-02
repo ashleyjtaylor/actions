@@ -80,6 +80,8 @@ jobs:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
           role-session-name: gh-deploy-session
           aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy CDK
+        run: npx nx affected -t dev:cdk:deploy
       - name: Deploy
         run: npx nx affected -t dev:deploy
 
