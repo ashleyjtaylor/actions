@@ -9,10 +9,9 @@ permissions:
   contents: read
 
 on:
-  workflow_run:
-    workflows: [pull-request]
-    types:
-      - completed
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       environment:
