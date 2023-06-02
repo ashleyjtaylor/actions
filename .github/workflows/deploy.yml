@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - main
+
   workflow_dispatch:
     inputs:
       environment:
@@ -21,6 +22,26 @@ on:
         default: 'dev'
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - name: Audit
+        run: npm audit
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run lint
+      - name: Build
+        run: npm run build
+
   dev:
     runs-on: ubuntu-latest
     steps:
