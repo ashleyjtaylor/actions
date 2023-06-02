@@ -87,7 +87,7 @@ jobs:
       - name: Deploy
         run: npx nx affected -t dev:deploy
       - name: Version
-        run: npx lerna version --yes --no-push
+        run: npx lerna version patch --yes --no-push
       - name: Publish
         run: npx lerna publish --yes --no-push
 
