@@ -1,19 +1,16 @@
-import { App, StackProps } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib';
 
-import OIDCProviderStack from '../src/OIDCProviderStack';
+import ToolsStack from '../src/ToolsStack';
 
 const app = new App({ outdir: `${process.cwd()}/cdk.out` });
 
-const stackProps: StackProps = {
+new ToolsStack(app, 'ToolsStack', {
   env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION
+    account: '352835053263',
+    region: 'eu-west-1'
+  },
+  tags: {
+    env: 'tools',
+    project: 'tools-actions'
   }
-};
-
-new OIDCProviderStack(app, 'OIDCProviderStack', {
-  ...stackProps,
-  issuer: 'token.actions.githubusercontent.com',
-  githubOwner: 'ashleyjtaylor',
-  githubRepo: 'actions'
 });

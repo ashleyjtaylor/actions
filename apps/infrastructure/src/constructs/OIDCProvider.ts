@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { StackProps } from 'aws-cdk-lib';
 import {
   Effect,
   OpenIdConnectProvider,
@@ -9,19 +9,17 @@ import {
   WebIdentityPrincipal
 } from 'aws-cdk-lib/aws-iam';
 
-export interface OIDCProviderStackProps extends StackProps {
+export interface OIDCProviderProps extends StackProps {
   issuer: string;
   githubOwner: string;
   githubRepo: string;
 }
 
-export default class OIDCProviderStack extends Stack {
-  constructor(scope: Construct, id: string, props: OIDCProviderStackProps) {
-    super(scope, id, props);
+export default class OIDCProvider extends Construct {
+  constructor(scope: Construct, id: string, props: OIDCProviderProps) {
+    super(scope, id);
 
     const { issuer, githubOwner, githubRepo } = props;
-
-    // console.log(this.node.tryGetContext('env'));
 
     const provider = new OpenIdConnectProvider(this, 'OIDCProvider', {
       url: `https://${issuer}`,
@@ -30,6 +28,7 @@ export default class OIDCProviderStack extends Stack {
 
     new Role(this, 'OIDCProviderRole', {
       roleName: 'oidc-provider-role',
+      description: 'Allow GitHub actions to connect to AWS',
       assumedBy: new WebIdentityPrincipal(provider.openIdConnectProviderArn, {
         StringLike: {
           [`${issuer}:sub`]: `repo:${githubOwner}/${githubRepo}:*`
