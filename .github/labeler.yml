@@ -1,0 +1,14 @@
+action:
+  - .github/**
+
+infrastructure:
+  - apps/infrastructure/**
+
+client:
+  - apps/client/**
+
+server:
+  - apps/server/**
+
+packages:
+  - packages/**
