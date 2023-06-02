@@ -86,6 +86,10 @@ jobs:
         run: npx nx affected -t dev:cdk:deploy
       - name: Deploy
         run: npx nx affected -t dev:deploy
+      - name: Version
+        run: npx lerna version --yes --no-push
+      - name: Publish
+        run: npx lerna publish --yes --no-push
 
   prod:
     if: github.event.inputs.environment == 'prod'
