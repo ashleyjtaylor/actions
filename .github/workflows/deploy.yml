@@ -81,11 +81,7 @@ jobs:
           role-session-name: gh-deploy-session
           aws-region: ${{ env.AWS_REGION }}
       - name: Deploy
-        run: npx nx affected -t build
-      # - name: Synth
-      #   run: npx nx run @actions/apps-infrastructure:cdk:synth -- -c env=dev --require-approval never
-      # - name: Deploy
-      #   run: npx nx run @actions/apps-infrastructure:cdk:deploy -- -c env=dev --require-approval never
+        run: npx nx affected -t dev:deploy
 
   prod:
     if: github.event.inputs.environment == 'prod'
