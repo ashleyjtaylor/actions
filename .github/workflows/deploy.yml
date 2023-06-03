@@ -85,8 +85,6 @@ jobs:
         run: npx nx affected -t dev:cdk:deploy
       - name: Deploy
         run: npx nx affected -t dev:deploy
-      - name: Check ENV
-        run: echo ${{ vars.ENV }}
 
   prod:
     if: github.event.inputs.environment == 'prod'
