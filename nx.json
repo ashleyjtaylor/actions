@@ -18,11 +18,5 @@
   "affected": {
     "defaultBase": "origin/main"
   },
-  "targetDefaults": {
-    "test": {
-      "dependsOn": [
-        "^build"
-      ]
-    }
-  }
+  "targetDefaults": {}
 }
