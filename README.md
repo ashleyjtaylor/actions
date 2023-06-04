@@ -1,5 +1,10 @@
 # Actions
 
+![Pull request](https://github.com/ashleyjtaylor/actions/actions/workflows/pull-request/badge.svg)
+![Deploy](https://github.com/ashleyjtaylor/actions/actions/workflows/deploy/badge.svg)
+
+---
+
 Playing around with `nx` and `github actions`.
 
 ## Pre-requisite
