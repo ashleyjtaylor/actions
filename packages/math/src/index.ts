@@ -12,4 +12,4 @@ export const divide = (numbers: number[]) =>
 
 export const random = () => Math.random();
 
-export const mod = (num1: number, num2: number) => num1 % num2;
+// export const mod = (num1: number, num2: number) => num1 % num2;
