@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          git config user.name ${{ github.event.pusher.username }}
+          git config user.name ${{ github.event.pusher.name }}
           git config user.email ${{ github.event.pusher.email }}
       - uses: actions/setup-node@v3
         with:
