@@ -32,7 +32,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm ci
+      - name: Install
+        run: npm ci
+      - name: Version
+        run: npx lerna version --yes
       - name: Audit
         run: npm audit
       - name: Lint
