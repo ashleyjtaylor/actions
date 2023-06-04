@@ -1,7 +1,7 @@
 # Actions
 
-![Pull request](https://github.com/ashleyjtaylor/actions/actions/workflows/pull-request/badge.svg)
-![Deploy](https://github.com/ashleyjtaylor/actions/actions/workflows/deploy/badge.svg)
+![Pull request](https://github.com/ashleyjtaylor/actions/actions/workflows/pull-request.yml/badge.svg)
+![Deploy](https://github.com/ashleyjtaylor/actions/actions/workflows/deploy.yml/badge.svg)
 
 ---
 
