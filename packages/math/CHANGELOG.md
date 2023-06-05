@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/ashleyjtaylor/actions/compare/@actions/packages-math@0.1.1...@actions/packages-math@0.1.2) (2023-06-05)
+
+
+### Bug Fixes
+
+* add mod fn ([5703b81](https://github.com/ashleyjtaylor/actions/commit/5703b8105ad2b9bdbb192de4bf71513dae9ada88))
+
+
+
+
+
 ## [0.1.1](https://github.com/ashleyjtaylor/actions/compare/@actions/packages-math@0.1.0...@actions/packages-math@0.1.1) (2023-06-05)
 
 
