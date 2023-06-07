@@ -38,8 +38,6 @@ jobs:
           node-version: '18'
       - name: Install
         run: npm ci
-      - name: Version
-        run: npx lerna version --yes
       - name: Audit
         run: npm audit
       - name: Lint
@@ -95,6 +93,8 @@ jobs:
         run: npx nx affected -t dev:cdk:deploy --output-style==stream-without-prefixes
       - name: Deploy
         run: npx nx affected -t dev:deploy
+      - name: Version
+        run: npx lerna version --yes
 
   prod:
     if: github.event.inputs.environment == 'prod'
