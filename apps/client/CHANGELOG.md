@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.4...@actions/apps-client@0.2.5) (2023-06-07)
+
+
+### Bug Fixes
+
+* client dev-deploy script ([31b7578](https://github.com/ashleyjtaylor/actions/commit/31b75786df39c2cbe2fe4de24dbb12193220450e))
+
+
+
+
+
 ## [0.2.4](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.3...@actions/apps-client@0.2.4) (2023-06-07)
 
 
