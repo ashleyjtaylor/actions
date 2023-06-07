@@ -14,11 +14,12 @@ export default class S3Bucket extends Construct {
     const { environment } = props;
 
     const bucket = new Bucket(this, 'Bucket', {
+      bucketName: `${environment}-ash-actions-monorepo`,
       removalPolicy: RemovalPolicy.DESTROY
     });
 
     new StringParameter(this, 'BucketParameter', {
-      parameterName: `/${environment}/actions/ssm/client/bucketArn`,
+      parameterName: `/${environment}/actions/client/bucketArn`,
       stringValue: bucket.bucketArn,
       description: `${environment} client bucketArn`
     });

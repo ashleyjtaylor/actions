@@ -4,12 +4,11 @@
   "description": "",
   "main": "src",
   "scripts": {
-    "lint": "eslint .",
-    "build": "tsc && tsc -p infrastructure",
-    "watch": "tsc -w",
+    "dev": "next dev",
+    "build": "next build && tsc -p infrastructure",
+    "start": "next start",
+    "lint": "next lint",
     "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts",
-    "cdk:synth": "cdk synth",
-    "cdk:deploy": "cdk deploy",
     "dev:deploy": "echo 'deploying dev client...'",
     "dev:cdk:deploy": "cdk deploy Dev* --require-approval never",
     "prod:deploy": "echo 'deploying prod client...'",
@@ -21,6 +20,8 @@
     "@actions/packages-math": "^0.1.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.4",
+    "@types/react": "^18.2.8",
     "aws-cdk-lib": "^2.82.0",
     "constructs": "^10.2.40"
   }
