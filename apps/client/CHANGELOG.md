@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.5...@actions/apps-client@0.2.6) (2023-06-07)
+
+**Note:** Version bump only for package @actions/apps-client
+
+
+
+
+
 ## [0.2.5](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.4...@actions/apps-client@0.2.5) (2023-06-07)
 
 
