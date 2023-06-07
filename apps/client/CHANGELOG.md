@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.2...@actions/apps-client@0.2.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* cdk stack ([a0a7cb0](https://github.com/ashleyjtaylor/actions/commit/a0a7cb00baed69b1ff6e6a782610a0197fff06e9))
+
+
+
+
+
 ## [0.2.2](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.1...@actions/apps-client@0.2.2) (2023-06-07)
 
 
