@@ -81,7 +81,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm ci
+      - name: Build
+        run: |
+          npm ci
+          npm run build
       - name: Assume OIDC Role
         uses: aws-actions/configure-aws-credentials@v2
         with:

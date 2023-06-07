@@ -2,9 +2,9 @@
 
 DIST=./dist
 
-if [[ "$GITHUB_ACTIONS" == "true" ]]; then
-  DIST=apps/client/dist
-fi
+# if [[ "$GITHUB_ACTIONS" == "true" ]]; then
+#   DIST=apps/client/dist
+# fi
 
 if [ ! -d "$DIST" ]; then
   echo "'$DIST' does not exist. Exiting script."
