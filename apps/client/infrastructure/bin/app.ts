@@ -1,10 +1,10 @@
 import { App } from 'aws-cdk-lib';
 
-import ClientStack from '../lib/ClientStack';
+import WebStack from '../lib/WebStack';
 
 const app = new App({ outdir: `${process.cwd()}/cdk.out` });
 
-new ClientStack(app, 'DevClientStack', {
+new WebStack(app, 'DevWebStackk', {
   env: {
     account: '352835053263',
     region: 'eu-west-1'
@@ -16,7 +16,7 @@ new ClientStack(app, 'DevClientStack', {
   environment: 'dev'
 });
 
-new ClientStack(app, 'ProdClientStack', {
+new WebStack(app, 'ProdWebStack', {
   env: {
     account: '352835053263',
     region: 'eu-west-1'
