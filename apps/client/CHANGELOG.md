@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.1...@actions/apps-client@0.2.2) (2023-06-07)
+
+
+### Bug Fixes
+
+* change stack to web stack ([0c1bb83](https://github.com/ashleyjtaylor/actions/commit/0c1bb83a7b5f414172981461c436f65a0a1589fb))
+
+
+
+
+
 ## [0.2.1](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.0...@actions/apps-client@0.2.1) (2023-06-07)
 
 
