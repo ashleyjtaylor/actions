@@ -4,7 +4,7 @@ import WebStack from '../lib/WebStack';
 
 const app = new App({ outdir: `${process.cwd()}/cdk.out` });
 
-new WebStack(app, 'DevWebStackk', {
+new WebStack(app, 'DevWebStack', {
   env: {
     account: '352835053263',
     region: 'eu-west-1'

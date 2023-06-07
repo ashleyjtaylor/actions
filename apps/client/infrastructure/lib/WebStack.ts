@@ -10,14 +10,14 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { StringParameter } from 'aws-cdk-lib/aws-ssm';
-import { RemovalPolicy, StackProps } from 'aws-cdk-lib/core';
+import { RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib/core';
 
-interface S3BucketProps extends StackProps {
+interface WebStackProps extends StackProps {
   environment: string;
 }
 
-export default class S3Bucket extends Construct {
-  constructor(scope: Construct, id: string, props: S3BucketProps) {
+export default class WebStack extends Stack {
+  constructor(scope: Construct, id: string, props: WebStackProps) {
     super(scope, id);
 
     const { environment } = props;
