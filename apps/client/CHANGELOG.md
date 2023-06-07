@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.3...@actions/apps-client@0.2.4) (2023-06-07)
+
+
+### Bug Fixes
+
+* cloudfront root object ([4d1ee0c](https://github.com/ashleyjtaylor/actions/commit/4d1ee0c191c138d79f105404c7e0f3af7c4ba976))
+
+
+
+
+
 ## [0.2.3](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.2...@actions/apps-client@0.2.3) (2023-06-07)
 
 
