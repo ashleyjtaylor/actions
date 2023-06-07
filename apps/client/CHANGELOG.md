@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.0...@actions/apps-client@0.2.1) (2023-06-07)
+
+
+### Bug Fixes
+
+* add nextjs ([2af2861](https://github.com/ashleyjtaylor/actions/commit/2af2861066db6ed5920b5968fbe5b9e585a21531))
+
+
+
+
+
 # [0.2.0](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.1.0...@actions/apps-client@0.2.0) (2023-06-07)
 
 
