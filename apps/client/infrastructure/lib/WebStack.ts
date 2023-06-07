@@ -47,6 +47,7 @@ export default class WebStack extends Stack {
     bucket.grantRead(originAccessIdentity);
 
     const distribution = new Distribution(this, 'Distribution', {
+      defaultRootObject: 'index.html',
       defaultBehavior: {
         viewerProtocolPolicy: ViewerProtocolPolicy.HTTPS_ONLY,
         origin: new S3Origin(bucket, {

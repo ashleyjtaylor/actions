@@ -9,7 +9,7 @@
     "start": "npx next start",
     "lint": "npx next lint",
     "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts",
-    "dev:deploy": "echo 'deploying dev client...'",
+    "dev:deploy": "./bin/dev-deploy.sh",
     "dev:cdk:deploy": "cdk deploy Dev* --require-approval never",
     "prod:deploy": "echo 'deploying prod client...'",
     "prod:cdk:deploy": "cdk deploy Prod* --require-approval never"
