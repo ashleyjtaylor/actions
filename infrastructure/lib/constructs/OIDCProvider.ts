@@ -27,7 +27,7 @@ export default class OIDCProvider extends Construct {
       clientIds: ['sts.amazonaws.com']
     });
 
-    const role = new Role(this, 'OIDCProviderRole', {
+    new Role(this, 'OIDCProviderRole', {
       roleName: 'oidc-provider-role',
       description: 'Allow GitHub actions to connect to AWS',
       assumedBy: new WebIdentityPrincipal(provider.openIdConnectProviderArn, {
