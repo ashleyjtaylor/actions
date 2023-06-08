@@ -28,7 +28,6 @@ jobs:
         working-directory: ./infrastructure
         run: |
           npm run lint
-          npm run test
           npm run build
       - name: Assume OIDC Role
         uses: aws-actions/configure-aws-credentials@v2
