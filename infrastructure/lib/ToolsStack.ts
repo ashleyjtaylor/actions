@@ -8,6 +8,7 @@ export default class ToolsStack extends Stack {
     super(scope, id, props);
 
     new OIDCProvider(this, 'OIDCProvider', {
+      region: props.env.region,
       issuer: 'token.actions.githubusercontent.com',
       githubOwner: 'ashleyjtaylor',
       githubRepo: 'actions'

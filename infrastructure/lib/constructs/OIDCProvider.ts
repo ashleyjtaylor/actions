@@ -10,6 +10,7 @@ import {
 } from 'aws-cdk-lib/aws-iam';
 
 export interface OIDCProviderProps extends StackProps {
+  region: string;
   issuer: string;
   githubOwner: string;
   githubRepo: string;
@@ -19,7 +20,7 @@ export default class OIDCProvider extends Construct {
   constructor(scope: Construct, id: string, props: OIDCProviderProps) {
     super(scope, id);
 
-    const { issuer, githubOwner, githubRepo } = props;
+    const { region, issuer, githubOwner, githubRepo } = props;
 
     const provider = new OpenIdConnectProvider(this, 'OIDCProvider', {
       url: `https://${issuer}`,
@@ -42,7 +43,7 @@ export default class OIDCProvider extends Construct {
           statements: [
             new PolicyStatement({
               sid: 'CdkDeploymentPermissions',
-              actions: ['sts:AssumeRole'],
+              actions: ['sts:AssumeRole', 'iam:PassRole'],
               resources: ['arn:aws:iam:::role/cdk-hnb659fds-*'],
               effect: Effect.ALLOW
             }),
@@ -56,8 +57,8 @@ export default class OIDCProvider extends Construct {
               sid: 'CdkParameterStorePermissions',
               actions: ['ssm:GetParameter'],
               resources: [
-                'arn:aws:ssm:::parameter/dev/actions/*',
-                'arn:aws:ssm:::parameter/prod/actions/*'
+                `arn:aws:ssm:${region}::parameter/dev/actions/*`,
+                `arn:aws:ssm:${region}::parameter/prod/actions/*`
               ],
               effect: Effect.ALLOW
             })
