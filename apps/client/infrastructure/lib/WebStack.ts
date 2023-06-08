@@ -25,6 +25,7 @@ export default class WebStack extends Stack {
     const bucket = new Bucket(this, 'Bucket', {
       bucketName: `${environment}-ash-actions-monorepo`,
       removalPolicy: RemovalPolicy.DESTROY,
+      websiteIndexDocument: 'index.html',
       blockPublicAccess: new BlockPublicAccess({
         blockPublicAcls: false,
         blockPublicPolicy: true,
