@@ -1,0 +1,46 @@
+name: infrastructure
+
+env:
+  AWS_REGION: eu-west-1
+  AWS_ACCOUNT_ID: 352835053263
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infrastructure/**'
+      - '!infrastructure/**/*.md'
+
+jobs:
+  infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Build
+        working-directory: ./infrastructure
+        run: |
+          npm run lint
+          npm run test
+          npm run build
+      - name: Assume OIDC Role
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
+          role-session-name: gh-infrastructure-deploy-session
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Synth
+        working-directory: ./infrastructure
+        run: npm run cdk:synth -- --require-approval never
+      - name: Deploy
+        working-directory: ./infrastructure
+        run: npm run cdk:deploy -- --require-approval never
+      - name: Version
+        run: npx lerna version --yes

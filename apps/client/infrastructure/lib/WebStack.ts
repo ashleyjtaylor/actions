@@ -60,13 +60,13 @@ export default class WebStack extends Stack {
       }
     });
 
-    new StringParameter(this, 'BucketParameter', {
-      parameterName: `/${environment}/actions/client/bucketArn`,
-      stringValue: bucket.bucketArn,
-      description: `${environment} client bucketArn`
+    new StringParameter(this, 'BucketNameParameter', {
+      parameterName: `/${environment}/actions/client/bucketName`,
+      stringValue: bucket.bucketName,
+      description: `${environment} client bucketName`
     });
 
-    new StringParameter(this, 'CloudFrontDistributionParameter', {
+    new StringParameter(this, 'CloudFrontDistributionIdParameter', {
       parameterName: `/${environment}/actions/client/cloudFrontDistributionId`,
       stringValue: distribution.distributionId,
       description: `${environment} client cloudFrontDistributionId`
