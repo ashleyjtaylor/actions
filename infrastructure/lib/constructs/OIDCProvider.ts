@@ -27,7 +27,7 @@ export default class OIDCProvider extends Construct {
       clientIds: ['sts.amazonaws.com']
     });
 
-    new Role(this, 'OIDCProviderRole', {
+    const role = new Role(this, 'OIDCProviderRole', {
       roleName: 'oidc-provider-role',
       description: 'Allow GitHub actions to connect to AWS',
       assumedBy: new WebIdentityPrincipal(provider.openIdConnectProviderArn, {
@@ -60,6 +60,17 @@ export default class OIDCProvider extends Construct {
                 `arn:aws:ssm:${region}:*:parameter/dev/actions/*`,
                 `arn:aws:ssm:${region}:*:parameter/prod/actions/*`
               ],
+              effect: Effect.ALLOW
+            }),
+            new PolicyStatement({
+              sid: 'CdkBucketPermissions',
+              actions: [
+                's3:ListBucket',
+                's3:GetObject',
+                's3:PutObject',
+                's3:DeleteObject'
+              ],
+              resources: ['arn:aws:s3:::dev-*/*', 'arn:aws:s3:::prod-*/*'],
               effect: Effect.ALLOW
             })
           ]
