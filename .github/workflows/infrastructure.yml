@@ -4,6 +4,10 @@ env:
   AWS_REGION: eu-west-1
   AWS_ACCOUNT_ID: 352835053263
 
+permissions:
+  id-token: write
+  contents: read
+
 on:
   push:
     branches:
