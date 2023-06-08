@@ -6,8 +6,7 @@ env:
 
 permissions:
   id-token: write
-  contents: write
-  pull-requests: write
+  contents: read
 
 on:
   push:
@@ -53,9 +52,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: |
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
@@ -74,8 +70,6 @@ jobs:
         run: npx nx affected -t dev:cdk:deploy
       - name: Deploy
         run: npx nx affected -t dev:deploy
-      - name: Version
-        run: npx lerna version --yes
 
   prod:
     if: github.event.inputs.environment == 'prod'
