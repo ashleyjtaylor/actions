@@ -43,14 +43,21 @@ export default class OIDCProvider extends Construct {
             new PolicyStatement({
               sid: 'CdkDeploymentPermissions',
               actions: ['sts:AssumeRole'],
-              resources: ['arn:aws:iam::*:role/cdk-*'],
+              resources: ['arn:aws:iam:::role/cdk-*'],
               effect: Effect.ALLOW
             }),
             new PolicyStatement({
               sid: 'CdkCloudFrontInvalidationPermissions',
               actions: ['cloudfront:CreateInvalidation'],
+              resources: ['arn:aws:cloudfront:::distribution/*'],
+              effect: Effect.ALLOW
+            }),
+            new PolicyStatement({
+              sid: 'CdkParameterStorePermissions',
+              actions: ['ssm:GetParameter'],
               resources: [
-                'arn:aws:cloudfront::352835053263:distribution/E1EMJ7IEHO56RP'
+                'arn:aws:ssm:::parameter/dev/actions/*',
+                'arn:aws:ssm:::parameter/prod/actions/*'
               ],
               effect: Effect.ALLOW
             })
