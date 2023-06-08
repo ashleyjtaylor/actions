@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.6...@actions/apps-client@0.3.0) (2023-06-08)
+
+
+### Bug Fixes
+
+* cdk stack names ([659d3ea](https://github.com/ashleyjtaylor/actions/commit/659d3ea6d6289f12120afe30fd116e1febcc692a))
+* **client:** deploy script ([37486a8](https://github.com/ashleyjtaylor/actions/commit/37486a862e27c2b3e5eed591491102f6aa01ad08))
+
+
+### Features
+
+* move infra to root. rename stack params ([672dfce](https://github.com/ashleyjtaylor/actions/commit/672dfce4220dbddb9df9bd1cd7db02024459629b))
+
+
+
+
+
 ## [0.2.6](https://github.com/ashleyjtaylor/actions/compare/@actions/apps-client@0.2.5...@actions/apps-client@0.2.6) (2023-06-07)
 
 **Note:** Version bump only for package @actions/apps-client
