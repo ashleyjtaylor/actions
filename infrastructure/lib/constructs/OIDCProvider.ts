@@ -57,8 +57,8 @@ export default class OIDCProvider extends Construct {
               sid: 'CdkParameterStorePermissions',
               actions: ['ssm:GetParameter'],
               resources: [
-                `arn:aws:ssm:${region}::parameter/dev/actions/*`,
-                `arn:aws:ssm:${region}::parameter/prod/actions/*`
+                `arn:aws:ssm:${region}:*:parameter/dev/actions/*`,
+                `arn:aws:ssm:${region}:*:parameter/prod/actions/*`
               ],
               effect: Effect.ALLOW
             })
