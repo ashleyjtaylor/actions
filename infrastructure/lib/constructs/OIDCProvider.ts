@@ -42,7 +42,7 @@ export default class OIDCProvider extends Construct {
           statements: [
             new PolicyStatement({
               sid: 'CdkDeploymentPermissions',
-              actions: ['sts:AssumeRole', 'iam:PassRole'],
+              actions: ['sts:AssumeRole'],
               resources: ['arn:aws:iam:::role/cdk-hnb659fds-*'],
               effect: Effect.ALLOW
             }),

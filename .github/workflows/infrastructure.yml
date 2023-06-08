@@ -44,7 +44,6 @@ jobs:
           role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/oidc-provider-role
           role-session-name: gh-infrastructure-deploy-session
           aws-region: ${{ env.AWS_REGION }}
-          role-chaining: true
       - name: Synth
         working-directory: ./infrastructure
         run: npm run cdk:synth -- --require-approval never
