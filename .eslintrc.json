@@ -20,5 +20,6 @@
     ],
     "ignorePatterns": ["dist", "cdk.out"],
     "rules": {
+      "@typescript-eslint/no-unused-vars": "error"
     }
 }

@@ -1,6 +1,7 @@
 name: deploy
 
 env:
+  NODE_VERSION: 18
   AWS_REGION: eu-west-1
   AWS_ACCOUNT_ID: 352835053263
 
@@ -13,9 +14,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - '.github/workflows/infrastructure.yml'
       - 'infrastructure/**'
-      - '**/*.md'
+      - '**.md'
   workflow_dispatch:
     inputs:
       environment:
@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install
         run: npm ci
       - name: Audit
@@ -55,11 +55,11 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ env.NODE_VERSION }}
       - name: Build
         run: |
           npm ci
-          npx nx affected -t build
+          npm run build
       - name: Assume OIDC Role
         uses: aws-actions/configure-aws-credentials@v2
         with:
