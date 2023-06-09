@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { Role } from 'aws-cdk-lib/aws-iam';
 import { Bucket, HttpMethods, BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
 import {
   OriginAccessIdentity,
@@ -45,7 +46,11 @@ export default class WebStack extends Stack {
       this,
       'OriginAccessIdentity'
     );
+
     bucket.grantRead(originAccessIdentity);
+    bucket.grantReadWrite(
+      Role.fromRoleName(this, 'OIDCProviderRole', 'oidc-provider-role')
+    );
 
     const distribution = new Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
