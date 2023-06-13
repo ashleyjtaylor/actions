@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { Role } from 'aws-cdk-lib/aws-iam';
+// import { Role } from 'aws-cdk-lib/aws-iam';
 import { Bucket, HttpMethods, BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
 import {
   OriginAccessIdentity,
@@ -28,7 +28,7 @@ export default class WebStack extends Stack {
       removalPolicy: RemovalPolicy.DESTROY,
       websiteIndexDocument: 'index.html',
       blockPublicAccess: new BlockPublicAccess({
-        blockPublicAcls: false,
+        blockPublicAcls: true,
         blockPublicPolicy: true,
         ignorePublicAcls: true,
         restrictPublicBuckets: true
@@ -48,9 +48,9 @@ export default class WebStack extends Stack {
     );
 
     bucket.grantRead(originAccessIdentity);
-    bucket.grantReadWrite(
-      Role.fromRoleName(this, 'OIDCProviderRole', 'oidc-provider-role')
-    );
+    // bucket.grantReadWrite(
+    //   Role.fromRoleName(this, 'OIDCProviderRole', 'oidc-provider-role')
+    // );
 
     const distribution = new Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
