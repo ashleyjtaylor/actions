@@ -61,6 +61,17 @@ export default class OIDCProvider extends Construct {
                 `arn:aws:ssm:${region}:*:parameter/prod/actions/*`
               ],
               effect: Effect.ALLOW
+            }),
+            new PolicyStatement({
+              sid: 'CdkBucketPermissions',
+              actions: [
+                's3:ListBucket',
+                's3:GetObject',
+                's3:PutObject',
+                's3:DeleteObject'
+              ],
+              resources: ['arn:aws:s3:::dev-*/*', 'arn:aws:s3:::prod-*/*'],
+              effect: Effect.ALLOW
             })
           ]
         })
