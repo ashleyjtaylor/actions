@@ -2,7 +2,7 @@ import { Construct } from 'constructs';
 // import { Role } from 'aws-cdk-lib/aws-iam';
 import { Bucket, HttpMethods, BlockPublicAccess } from 'aws-cdk-lib/aws-s3';
 import {
-  OriginAccessIdentity,
+  // OriginAccessIdentity,
   Distribution,
   ViewerProtocolPolicy,
   CachePolicy,
@@ -26,12 +26,7 @@ export default class WebStack extends Stack {
     const bucket = new Bucket(this, 'Bucket', {
       bucketName: `${environment}-ash-actions-monorepo`,
       removalPolicy: RemovalPolicy.DESTROY,
-      blockPublicAccess: new BlockPublicAccess({
-        blockPublicAcls: true,
-        blockPublicPolicy: true,
-        ignorePublicAcls: true,
-        restrictPublicBuckets: true
-      }),
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       cors: [
         {
           allowedMethods: [HttpMethods.GET],
@@ -41,12 +36,12 @@ export default class WebStack extends Stack {
       ]
     });
 
-    const originAccessIdentity = new OriginAccessIdentity(
-      this,
-      'OriginAccessIdentity'
-    );
+    // const originAccessIdentity = new OriginAccessIdentity(
+    //   this,
+    //   'OriginAccessIdentity'
+    // );
 
-    bucket.grantRead(originAccessIdentity);
+    // bucket.grantRead(originAccessIdentity);
     // bucket.grantReadWrite(
     //   Role.fromRoleName(this, 'OIDCProviderRole', 'oidc-provider-role')
     // );
@@ -55,9 +50,7 @@ export default class WebStack extends Stack {
       defaultRootObject: 'index.html',
       defaultBehavior: {
         viewerProtocolPolicy: ViewerProtocolPolicy.HTTPS_ONLY,
-        origin: new S3Origin(bucket, {
-          originAccessIdentity
-        }),
+        origin: new S3Origin(bucket),
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
         responseHeadersPolicy:
