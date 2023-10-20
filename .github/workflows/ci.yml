@@ -4,9 +4,8 @@ env:
   NODE_VERSION: 18
 
 on:
+  push:
   pull_request:
-    branches:
-      - main
     paths-ignore:
       - '**/*.md'
 
