@@ -67,7 +67,7 @@ jobs:
           role-session-name: gh-dev-deploy-session
           aws-region: ${{ env.AWS_REGION }}
       - name: Deploy CDK
-        run: npx nx affected -t dev:cdk:deploy
+        run: npx nx affected -t dev:cdk-deploy
       - name: Deploy
         run: npx nx affected -t dev:deploy
 
