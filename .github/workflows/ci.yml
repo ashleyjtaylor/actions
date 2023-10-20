@@ -4,9 +4,6 @@ env:
   NODE_VERSION: 18
 
 on:
-  push:
-    paths-ignore:
-      - '**/*.md'
   pull_request:
     paths-ignore:
       - '**/*.md'
