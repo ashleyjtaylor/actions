@@ -10,12 +10,13 @@ permissions:
   contents: read
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'infrastructure/**'
-      - '**.md'
+  workflow_call:
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        type: string
+        required: true
+        default: 'dev'
   workflow_dispatch:
     inputs:
       environment:

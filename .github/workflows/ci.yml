@@ -1,10 +1,12 @@
-name: pull-request
+name: ci
 
 env:
   NODE_VERSION: 18
 
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
   pull_request:
     paths-ignore:
       - '**/*.md'
@@ -58,3 +60,13 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm ci
       - run: npx nx affected -t build
+
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    needs: [audit, lint, test, build]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: gh workflow run deploy.yml -f environment=dev
