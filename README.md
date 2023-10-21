@@ -1,6 +1,6 @@
 # Actions
 
-![Pull request](https://github.com/ashleyjtaylor/actions/actions/workflows/pull-request.yml/badge.svg)
+![CI](https://github.com/ashleyjtaylor/actions/actions/workflows/ci.yml/badge.svg)
 ![Deploy](https://github.com/ashleyjtaylor/actions/actions/workflows/deploy.yml/badge.svg)
 
 ---
@@ -11,6 +11,12 @@ Playing around with `nx` and `github actions`.
 
 - AWS credentials set in `~/.aws/credentials`
 - Add `dev` and `prod` environments in your github repo
+- Open MongoDB Atlas account:
+  - Create an organisation API key for AWS CDK access
+  - Store them in `AWS SecretsManager` under `mongodb/atlas`:
+    - `AtlasPublicKey`
+    - `AtlasPrivateKey`
+    - `AtlasOrganisationId`
 
 ## Setup
 
