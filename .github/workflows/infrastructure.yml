@@ -15,8 +15,7 @@ on:
       - main
     paths:
       - 'infrastructure/**'
-    paths-ignore:
-      - '**/*.md'
+      - '!**/*.md'
 
 jobs:
   infrastructure:
