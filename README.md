@@ -11,7 +11,8 @@ Playing around with `nx` and `github actions`.
 ## Pre-requisite
 
 - AWS credentials set in `~/.aws/credentials`
-- Add `dev` and `prod` environments in your github repo
+- Add `dev` and `prod` environments in the github repo
+- Add SonarCloud token as a repository secret in the github repo
 - Open MongoDB Atlas account:
   - Create an organisation API key for AWS CDK access
   - Store them in `AWS SecretsManager` under `mongodb/atlas`:

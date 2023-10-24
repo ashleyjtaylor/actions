@@ -3,7 +3,7 @@ name: ci
 env:
   NODE_VERSION: 18
   GITHUB_TOKEN: ${{ github.token }}
-  SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+  SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
 permissions: write-all
 
@@ -75,8 +75,6 @@ jobs:
         fetch-depth: 0
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
       with:
         args: >
           -Dsonar.organization=ashleyjtaylor
