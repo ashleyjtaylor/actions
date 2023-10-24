@@ -82,9 +82,6 @@ jobs:
         args: >
           -Dsonar.organization=ashleyjtaylor
           -Dsonar.projectKey=ashleyjtaylor_actions
-          -Dsonar.python.coverage.reportPaths=coverage.xml
-          -Dsonar.sources=./
-          -Dsonar.tests=./**/*/__tests__
           -Dsonar.verbose=true
 
   trigger-deploy:
