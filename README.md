@@ -13,10 +13,12 @@ Playing around with `nx` and `github actions`.
 - Add `dev` and `prod` environments in your github repo
 - Open MongoDB Atlas account:
   - Create an organisation API key for AWS CDK access
-  - Store them in `AWS SecretsManager` under `mongodb/atlas`:
-    - `AtlasPublicKey`
-    - `AtlasPrivateKey`
-    - `AtlasOrganisationId`
+  - Store them in `AWS SecretsManager` under `cfn/atlas/profile/dev`:
+    - `PublicKey`
+    - `PrivateKey`
+    - `OrganisationId`
+- Activate AWS CloudFormation Third-Party extensions for MongoDB Project and Cluster
+  - Set `arn` as the one created by `cdk bootstrap`
 
 ## Setup
 

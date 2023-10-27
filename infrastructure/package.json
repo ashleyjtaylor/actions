@@ -15,6 +15,7 @@
   "devDependencies": {
     "aws-cdk": "^2.81.0",
     "aws-cdk-lib": "^2.81.0",
+    "awscdk-resources-mongodbatlas": "^1.2.0",
     "constructs": "^10.2.39"
   }
 }

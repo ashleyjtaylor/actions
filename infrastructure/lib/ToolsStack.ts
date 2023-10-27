@@ -2,6 +2,7 @@ import { Construct } from 'constructs';
 import { Stack, StackProps } from 'aws-cdk-lib';
 
 import OIDCProvider from './constructs/OIDCProvider';
+import MongoDBAtlasRole from './constructs/MongoDBAtlasRole';
 
 export default class ToolsStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps) {
@@ -13,5 +14,7 @@ export default class ToolsStack extends Stack {
       githubOwner: 'ashleyjtaylor',
       githubRepo: 'actions'
     });
+
+    new MongoDBAtlasRole(this, 'MongoDBAtlasRole');
   }
 }
