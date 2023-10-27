@@ -8,6 +8,7 @@
     "infrastructure"
   ],
   "scripts": {
+    "prepare": "husky install",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
     "build": "nx run-many -t build",
