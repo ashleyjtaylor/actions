@@ -19,6 +19,7 @@ Playing around with `nx` and `github actions`.
     - `PublicKey`
     - `PrivateKey`
     - `OrganisationId`
+    - `DatabasePassword`
 - Activate AWS CloudFormation Third-Party extensions for MongoDB Project and Cluster
   - Set `arn` as the one created by `cdk bootstrap`
 
