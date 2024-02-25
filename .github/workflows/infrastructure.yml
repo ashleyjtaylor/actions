@@ -1,7 +1,7 @@
 name: infrastructure
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 20
   AWS_REGION: eu-west-1
   AWS_ACCOUNT_ID: 352835053263
 
