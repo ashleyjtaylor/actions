@@ -1,4 +1,4 @@
 {
-  "app": "node --loader tsx infrastructure/bin/app.ts",
+  "app": "node --import tsx infrastructure/bin/app.ts",
   "versionReporting": false
 }

@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts"
+    "test": "node --import tsx --test-reporter=spec --no-warnings --test **/*.test.ts"
   },
   "author": "",
   "license": "ISC"
