@@ -8,7 +8,7 @@
     "build": "npx next build && tsc -p infrastructure",
     "start": "npx next start",
     "lint": "npx next lint",
-    "test": "node --loader tsx --test-reporter=spec --no-warnings --test **/*.test.ts",
+    "test": "node --import tsx --test-reporter=spec --no-warnings --test **/*.test.ts",
     "dev:deploy": "./bin/dev-deploy.sh",
     "dev:cdk-deploy": "cdk deploy Dev* --require-approval never",
     "prod:deploy": "echo 'deploying prod client...'",
