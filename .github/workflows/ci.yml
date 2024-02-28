@@ -80,6 +80,8 @@ jobs:
           -Dsonar.organization=ashleyjtaylor
           -Dsonar.projectKey=ashleyjtaylor_actions
           -Dsonar.verbose=true
+          -Dsonar.test.exclusions=__tests__/**
+          -Dsonar.tests=__tests__/
 
   trigger-deploy:
     runs-on: ubuntu-latest
