@@ -20,6 +20,20 @@
     ],
     "ignorePatterns": ["dist", "cdk.out"],
     "rules": {
-      "@typescript-eslint/no-unused-vars": "error"
+      "max-len": ["error", { "code": 160 }],
+        "eol-last": "error",
+        "comma-dangle": "error",
+        "semi": ["error", "never"],
+        "quotes": ["error", "single"],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
+        "no-trailing-spaces": "error",
+        "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+        }
+        ]
     }
 }

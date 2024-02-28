@@ -1,3 +1,3 @@
 export default () => {
-  return 'is-server';
-};
+  return 'is-server'
+}

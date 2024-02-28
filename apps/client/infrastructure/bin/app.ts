@@ -1,8 +1,8 @@
-import { App } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib'
 
-import WebStack from '../lib/WebStack';
+import WebStack from '../lib/WebStack'
 
-const app = new App({ outdir: `${process.cwd()}/cdk.out` });
+const app = new App({ outdir: `${process.cwd()}/cdk.out` })
 
 new WebStack(app, 'DevWebStack', {
   env: {
@@ -14,7 +14,7 @@ new WebStack(app, 'DevWebStack', {
     project: 'dev-actions'
   },
   environment: 'dev'
-});
+})
 
 new WebStack(app, 'ProdWebStack', {
   env: {
@@ -26,4 +26,4 @@ new WebStack(app, 'ProdWebStack', {
     project: 'prod-actions'
   },
   environment: 'prod'
-});
+})

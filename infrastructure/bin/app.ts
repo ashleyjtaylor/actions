@@ -1,8 +1,8 @@
-import { App } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib'
 
-import ToolsStack from '../lib/ToolsStack';
+import ToolsStack from '../lib/ToolsStack'
 
-const app = new App({ outdir: `${process.cwd()}/cdk.out` });
+const app = new App({ outdir: `${process.cwd()}/cdk.out` })
 
 new ToolsStack(app, 'ToolsStack', {
   env: {
@@ -13,4 +13,4 @@ new ToolsStack(app, 'ToolsStack', {
     env: 'tools',
     project: 'tools-actions'
   }
-});
+})
