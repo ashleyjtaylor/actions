@@ -1,5 +1,5 @@
-import { Construct } from 'constructs';
-import { StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs'
+import { StackProps } from 'aws-cdk-lib'
 import {
   Effect,
   OpenIdConnectProvider,
@@ -7,7 +7,7 @@ import {
   PolicyStatement,
   Role,
   WebIdentityPrincipal
-} from 'aws-cdk-lib/aws-iam';
+} from 'aws-cdk-lib/aws-iam'
 
 export interface OIDCProviderProps extends StackProps {
   region: string;
@@ -18,14 +18,14 @@ export interface OIDCProviderProps extends StackProps {
 
 export default class OIDCProvider extends Construct {
   constructor(scope: Construct, id: string, props: OIDCProviderProps) {
-    super(scope, id);
+    super(scope, id)
 
-    const { region, issuer, githubOwner, githubRepo } = props;
+    const { region, issuer, githubOwner, githubRepo } = props
 
     const provider = new OpenIdConnectProvider(this, 'OIDCProvider', {
       url: `https://${issuer}`,
       clientIds: ['sts.amazonaws.com']
-    });
+    })
 
     new Role(this, 'OIDCProviderRole', {
       roleName: 'oidc-provider-role',
@@ -76,6 +76,6 @@ export default class OIDCProvider extends Construct {
           ]
         })
       }
-    });
+    })
   }
 }
