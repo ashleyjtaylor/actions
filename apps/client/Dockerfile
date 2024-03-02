@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY ./packages ./packages
 COPY ./apps/client ./apps/client
-RUN npm install
+RUN npm install --ignore-scripts
 
 # -- Build -- #
 FROM install AS build
