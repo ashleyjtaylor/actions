@@ -5,7 +5,7 @@ RUN apk add --no-cache jq
 RUN apk add --no-cache aws-cli
 
 # -- Install -- #
-FROM setup as install
+FROM setup AS install
 WORKDIR /app
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY ./packages ./packages
